@@ -16,6 +16,10 @@ import meme11 from './metadata/memes/11.webp';
 import meme12 from './metadata/memes/12.webp';
 import meme13 from './metadata/memes/13.webp';
 import meme14 from './metadata/memes/14.webp';
+import meme15 from './metadata/memes/15.webp';
+import meme16 from './metadata/memes/16.jpg';
+import meme17 from './metadata/memes/17.jpg';
+import meme18 from './metadata/memes/18.jpg';
 
 var canvas;
 var context;
@@ -163,7 +167,7 @@ enterText.appendChild(enter_R);
 const moons = document.createElement('div'); 
 moons.id = "moons";
 
-const moonsImgs = [meme1, meme2, meme3, meme4, meme5, meme6, meme7, meme8, meme9, meme10, meme11, meme12, meme13, meme14];
+const moonsImgs = [meme1, meme2, meme3, meme4, meme5, meme6, meme7, meme8, meme9, meme10, meme11, meme12, meme13, meme14, meme15, meme16, meme17, meme18, meme1, meme2, meme3, meme4, meme5, meme6, meme7, meme8, meme9, meme10, meme11, meme12, meme13, meme14, meme15, meme16, meme17, meme18];
 moonsImgs.forEach((meme, index) => {
   const moonContainer = document.createElement('div'); 
   moonContainer.id = `moon${index + 1}`;

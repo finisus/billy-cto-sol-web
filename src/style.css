@@ -247,7 +247,8 @@ img {
   align-items: start;
   gap: 96px;
   overflow: hidden;
-  animation: moveLeft 100s linear infinite;
+  width: 10000px;
+  animation: moveLeft 240s linear infinite;
 }
 .moon {
   width: 160px;
@@ -292,7 +293,7 @@ img {
     transform: translateX(0);
   } 
   100% {
-    transform: translateX(-3200px);
+    transform: translateX(-100%);
   }
 }
 
@@ -315,9 +316,10 @@ img {
     letter-spacing: 1px;
   }
   #sw_scroller {
-    height: 88em;
-    width: 16em;
+    height: 100em;
+    width: 16.42em;
     font-size: 1.4rem;
+    transform: translateX(-50%) perspective(169px) rotateX(24deg);
   }
   #sw_scroller::after {
     position: absolute;
@@ -328,7 +330,7 @@ img {
     top: 0;
   }
   #sw_scroller .content {
-    animation: sw_scroll 148s linear 2s;
+    animation: sw_scroll 169s linear 2s;
   }
 
   #sw_scroller .content .title, #sw_scroller .content .subtitle {
