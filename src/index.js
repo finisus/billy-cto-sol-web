@@ -62,7 +62,7 @@ var screenH;
 var screenW;
 var stars = [];
 var fps = 50;
-var numStars = 690;
+var numStars = 360;
 
 $(document).ready(function() {
   // Calculate the screen size
