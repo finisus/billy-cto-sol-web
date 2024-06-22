@@ -1,6 +1,33 @@
 import './style.css';
 import billyToBillyMp3 from './metadata/billy_to_a_billy.mp3';
 
+import moonImg from './metadata/memes/yellow-full-moon.png';
+import meme1 from './metadata/memes/1.jpg';
+import meme2 from './metadata/memes/2.jpeg';
+import meme3 from './metadata/memes/3.jpeg';
+import meme4 from './metadata/memes/4.webp';
+import meme5 from './metadata/memes/5.webp';
+import meme6 from './metadata/memes/6.webp';
+import meme7 from './metadata/memes/7.webp';
+import meme8 from './metadata/memes/8.webp';
+import meme9 from './metadata/memes/9.webp';
+import meme10 from './metadata/memes/10.webp';
+import meme11 from './metadata/memes/11.webp';
+import meme12 from './metadata/memes/12.webp';
+import meme13 from './metadata/memes/13.webp';
+import meme14 from './metadata/memes/14.webp';
+import meme15 from './metadata/memes/blank.png';
+import meme16 from './metadata/memes/blank.png';
+import meme17 from './metadata/memes/blank.png';
+import meme18 from './metadata/memes/blank.png';
+import meme19 from './metadata/memes/blank.png';
+import meme20 from './metadata/memes/blank.png';
+import meme21 from './metadata/memes/blank.png';
+import meme22 from './metadata/memes/blank.png';
+import meme23 from './metadata/memes/blank.png';
+import meme24 from './metadata/memes/blank.png';
+import meme25 from './metadata/memes/blank.png';
+
 /*
 
 base: blinking stars
@@ -142,7 +169,6 @@ Star.prototype.draw = function(context) {
   context.restore();
 }
 
-
 const landingPage = document.getElementById('landingPage');
 const mainPage = document.getElementById('mainPage');
 
@@ -152,6 +178,41 @@ mainPage.style.display = 'none';
 const closeLandingBtn = document.createElement('button');
 closeLandingBtn.innerHTML = 'Enter';
 landingPage.appendChild(closeLandingBtn);
+
+// Moons moving animation
+const moons = document.createElement('div'); 
+moons.id = "moons";
+
+const moonsImgs = [meme1, meme2, meme3, meme4, meme5, meme6, meme7, meme8, meme9, meme10, meme11, meme12, meme13, meme14];
+moonsImgs.forEach((meme, index) => {
+  const moonContainer = document.createElement('div'); 
+  moonContainer.id = `moon${index + 1}`;
+  moonContainer.classList.add('moon');
+
+  const moon = document.createElement('img');
+  moon.src = moonImg;
+  moon.style.position = 'absolute';
+  moon.style.width = '100%';
+  moon.style.height = '100%';
+  moon.style.display = 'block';
+
+  const memeImg = document.createElement('img');
+  memeImg.src = meme;
+  memeImg.style.position = 'absolute';
+  memeImg.style.width = '100%';
+  memeImg.style.height = '100%';
+  memeImg.style.border = 'none';
+  memeImg.style.borderRadius = '50%';
+  memeImg.style.opacity = '0.69';
+  memeImg.classList.add('memeImg');
+
+  moonContainer.appendChild(moon);
+  moonContainer.appendChild(memeImg);
+  moons.appendChild(moonContainer);
+});
+
+mainPage.appendChild(moons);
+//////////
 
 // Star Wars Scroll Text
 function starWarsText() {
@@ -234,7 +295,7 @@ function starWarsText() {
   <br>
   <br>
   <br>Billy to a billy, we're bad this way. 
-  <br>Cute dog I'll mean the space and say Solana's, future, it's big big brains From meme coin chaos to brighter days. 
+  <br>Cute dog i'll mean the space and say Solana's, future, it's big big brains From meme coin chaos to brighter days. 
   <br>
   <br>
   <br>In a world of crypto, it's a shining light Billy coin's the hero in the day and night Solana's, champion, big and fly From meme coin darkness to visions bright. 
@@ -314,7 +375,6 @@ mainPage.appendChild(footer);
 //////////
 
 document.addEventListener('DOMContentLoaded', function() {
-
   // Landing & Audio Event Listeners
   const audio = new Audio(billyToBillyMp3);
   audio.loop = true;
