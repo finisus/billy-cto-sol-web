@@ -30,7 +30,6 @@ mainPage {
 */
 
 const spaceCanvas = document.getElementById('space');
-spaceCanvas.style.zIndex = '-99';
 var canvas;
 var context;
 var screenH;
@@ -149,12 +148,50 @@ Star.prototype.draw = function() {
 const landingPage = document.getElementById('landingPage');
 const mainPage = document.getElementById('mainPage');
 
-landingPage.style.display = 'block';
-mainPage.style.display = 'none';
+landingPage.style.display = 'none';
+mainPage.style.display = 'block';
 
 const closeLandingBtn = document.createElement('button');
 closeLandingBtn.innerHTML = 'Enter';
 landingPage.appendChild(closeLandingBtn);
+
+// Socials
+const socials = document.createElement('div');
+socials.classList.add("socials");
+
+const twitterBtn = document.createElement('button');
+twitterBtn.innerHTML = "Twitter";
+socials.appendChild(twitterBtn);
+
+const telegramBtn = document.createElement('button');
+telegramBtn.innerHTML = "Telegram";
+socials.appendChild(telegramBtn);
+
+const chartBtn = document.createElement('button');
+chartBtn.innerHTML = "Chart";
+socials.appendChild(chartBtn);
+
+const buyBtn = document.createElement('button');
+buyBtn.innerHTML = "Buy";
+socials.appendChild(buyBtn);
+
+mainPage.appendChild(socials);
+//////////
+
+// Footer
+const footer = document.createElement('div'); 
+footer.classList.add("footer");
+
+const contract = document.createElement('span');
+contract.innerHTML = "3B5wuUrMEi5yATD7on46hKfej3pfmd7t1RKgrsN3pump";
+footer.appendChild(contract);
+
+const copyCa = document.createElement('button');
+copyCa.innerHTML = "Copy CA";
+footer.appendChild(copyCa);
+
+mainPage.appendChild(footer);
+//////////
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -163,5 +200,28 @@ document.addEventListener('DOMContentLoaded', function() {
     mainPage.style.display = 'block';
 
   })
+
+  // Copy Contract Logic
+  const textToCopy = contract.innerHTML;
+  copyCa.addEventListener("click", async () => {
+    try {
+      // Try the modern Clipboard API first (if supported)
+      await navigator.clipboard.writeText(textToCopy);
+      console.log("Text copied successfully using Clipboard API");
+      alert("Contract copied successfully!");
+    } catch (err) {
+      // If Clipboard API fails, use the legacy approach
+      const textArea = document.createElement("textarea");
+      textArea.value = textToCopy;
+      textArea.style.position = "fixed"; // Hide element off-screen
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      console.log("Text copied successfully using legacy approach");
+      alert("Contract copied successfully!");
+    }
+  });
 
 });

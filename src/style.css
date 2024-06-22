@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'star';
+  src: url('./metadata/fonts/StarJediSpecialEdition.woff');
+}
+
 :root {
   --base: #000000;
+  --text: #ffffff;
+  --cream: #ffffc8;
+  --yellow: #ffff33;
 }
 
 html {
@@ -12,7 +20,9 @@ body {
   left: 0;
   right: 0;
   margin: 0;
+  color: var(--text);
   background-color: var(--base);
+  font-family: 'star';
   overflow: hidden;
 }
 
@@ -21,6 +31,7 @@ button {
 }
 
 #space {
+  z-index: -99;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,5 +51,105 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 4px 16px;
+  font-family: 'star';
+  font-size: 3rem;
+  color: var(--cream);
+  background: none;
+  border: none;
+}
+
+#mainPage {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+#mainPage .socials {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 48px);
+  margin-bottom: 90px;
+  margin-left: 24px;
+  margin-right: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
+}
+#mainPage .socials button {
+  font-family: 'star';
   font-size: 1rem;
+  letter-spacing: 1px;
+  color: var(--text);
+  background: none;
+}
+#mainPage .socials button:nth-child(1) {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: 1px solid var(--cream);
+}
+#mainPage .socials button:nth-child(2) {
+  border-top: none;
+  border-bottom: none;
+  border-left: 1px solid var(--cream);
+  border-right: 1px solid var(--cream);
+}
+#mainPage .socials button:nth-child(3) {
+  border-top: none;
+  border-bottom: none;
+  border-left: 1px solid var(--cream);
+  border-right: 1px solid var(--cream);
+}
+#mainPage .socials button:nth-child(4) {
+  border-top: none;
+  border-bottom: none;
+  border-left: 1px solid var(--cream);
+  border-right: none;
+}
+
+#mainPage .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 48px);
+  margin-bottom: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+#mainPage .footer span {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  word-break: break-all;
+  text-align: start;
+}
+#mainPage .footer button {
+  font-family: 'star';
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 20px;
+  color: var(--cream);
+  background: none;
+  border: none;
+}
+
+@media screen and (max-width: 600px) {
+  #mainPage .footer {
+    gap: 16px;
+  }
+  #mainPage .footer span {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
 }
