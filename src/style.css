@@ -72,6 +72,32 @@ img {
 #landingPage button:hover { color: var(--text); }
 #landingPage button:active { color: var(--cream); }
 
+#enterText {
+  z-index: 99;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4px 16px;
+  font-family: 'star';
+  font-size: 3rem;
+  color: var(--cream);
+  display: none;
+}
+#enterText span {
+  animation: landingTextAnimationLeft 3s forwards;
+}
+#enterText span:nth-child(1) { animation-delay: 0.4s; }
+#enterText span:nth-child(2) { animation-delay: 1.2s; }
+#enterText span:nth-child(3) { animation-delay: 1.8s; }
+#enterText span:nth-child(4) { animation-delay: 2.2s; }
+#enterText span:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes landingTextAnimationLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100vw); }
+}
+
 #mainPage {
   z-index: 99;
   position: absolute;

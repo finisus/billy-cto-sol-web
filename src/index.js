@@ -16,45 +16,6 @@ import meme11 from './metadata/memes/11.webp';
 import meme12 from './metadata/memes/12.webp';
 import meme13 from './metadata/memes/13.webp';
 import meme14 from './metadata/memes/14.webp';
-import meme15 from './metadata/memes/blank.png';
-import meme16 from './metadata/memes/blank.png';
-import meme17 from './metadata/memes/blank.png';
-import meme18 from './metadata/memes/blank.png';
-import meme19 from './metadata/memes/blank.png';
-import meme20 from './metadata/memes/blank.png';
-import meme21 from './metadata/memes/blank.png';
-import meme22 from './metadata/memes/blank.png';
-import meme23 from './metadata/memes/blank.png';
-import meme24 from './metadata/memes/blank.png';
-import meme25 from './metadata/memes/blank.png';
-
-/*
-
-base: blinking stars
-
-landingPage {
-
-  Enter button middle
-
-  Get vector of Planets/moons in their weird circular shapes with imperfect edges etc,
-    post billy memes pictures on each of the planets
-  
-  Make the billy planets free roam around the website
-
-} 
-
-mainPage {
-  
-  Star Wars like scrolling text bottom to top and fade away
-    Put billy to a billy song lyrics in the scrolling text 
-
-  Make billy to a billy song mp3 play in bg
-
-  have contract and other buttons styled in star wars theme
-
-}
-
-*/
 
 var canvas;
 var context;
@@ -177,7 +138,26 @@ mainPage.style.display = 'none';
 
 const closeLandingBtn = document.createElement('button');
 closeLandingBtn.innerHTML = 'Enter';
+closeLandingBtn.style.display = 'block';
 landingPage.appendChild(closeLandingBtn);
+
+const enterText = document.getElementById('enterText');
+enterText.display = 'none';
+const enter_E = document.createElement('span');
+enter_E.innerHTML = "E";
+const enter_N = document.createElement('span');
+enter_N.innerHTML = "N";
+const enter_T = document.createElement('span');
+enter_T.innerHTML = "T";
+const enter_E2 = document.createElement('span');
+enter_E2.innerHTML = "E";
+const enter_R = document.createElement('span');
+enter_R.innerHTML = "R";
+enterText.appendChild(enter_E);
+enterText.appendChild(enter_N);
+enterText.appendChild(enter_T);
+enterText.appendChild(enter_E2);
+enterText.appendChild(enter_R);
 
 // Moons moving animation
 const moons = document.createElement('div'); 
@@ -381,14 +361,21 @@ document.addEventListener('DOMContentLoaded', function() {
   audio.volume = 1.0;
 
   closeLandingBtn.addEventListener('click', function() {
-    audio.play().catch(error => {
-      console.log('AutoPlay was prevented. Please interact with the page to play audio.');
-    });
+    closeLandingBtn.style.display = 'none'; // Hide the button
+    enterText.style.display = 'flex'; // Show the enterText
 
-    landingPage.style.display = 'none';
-    mainPage.style.display = 'block';
-  })
-  starWarsText();
+    setTimeout(function() {
+      audio.play().catch(error => {
+        console.log('AutoPlay was prevented. Please interact with the page to play audio.');
+      });
+  
+      landingPage.style.display = 'none';
+      mainPage.style.display = 'block';
+    }, 3000); // 3000 milliseconds = 3 seconds
+  });
+  setTimeout(function() {
+    starWarsText();
+  }, 3000);
   //////////
 
   // Socials & Other Hyperlinks
