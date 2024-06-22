@@ -1,0 +1,33 @@
+{
+  "name": "billy-cto-sol-web",
+  "version": "1.0.0",
+  "description": "CTO web for $BILLY on Solana, by Finisus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/finisus/billy-cto-sol-web.git"
+  },
+  "author": "Finisus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/finisus/billy-cto-sol-web/issues"
+  },
+  "homepage": "https://github.com/finisus/billy-cto-sol-web#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "inline-source-map": "^0.6.3",
+    "style-loader": "^4.0.0",
+    "webp-loader": "^0.6.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}
