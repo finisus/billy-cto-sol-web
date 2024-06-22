@@ -2,12 +2,16 @@
   font-family: 'star';
   src: url('./metadata/fonts/StarJediSpecialEdition.woff');
 }
+@font-face {
+  font-family: 'starHollow';
+  src: url('./metadata/fonts/StarJediHollow.woff');
+}
 
 :root {
   --base: #000000;
   --text: #ffffff;
   --cream: #ffffc8;
-  --yellow: #ffff33;
+  --yellow: #ffe81f;
 }
 
 html {
@@ -58,6 +62,8 @@ button {
   background: none;
   border: none;
 }
+#landingPage button:hover { color: var(--text); }
+#landingPage button:active { color: var(--cream); }
 
 #mainPage {
   z-index: 99;
@@ -70,11 +76,12 @@ button {
 }
 
 #mainPage .socials {
+  z-index: 99;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: calc(100% - 48px);
-  margin-bottom: 90px;
+  margin-top: 32px;
   margin-left: 24px;
   margin-right: 24px;
   display: grid;
@@ -90,6 +97,8 @@ button {
   color: var(--text);
   background: none;
 }
+#mainPage .socials button:hover { color: var(--cream); }
+#mainPage .socials button:active { color: var(--text); }
 #mainPage .socials button:nth-child(1) {
   border-top: none;
   border-bottom: none;
@@ -117,10 +126,10 @@ button {
 
 #mainPage .footer {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: calc(100% - 48px);
-  margin-bottom: 24px;
+  margin-top: 90px;
   margin-left: 24px;
   margin-right: 24px;
   display: flex;
@@ -144,12 +153,94 @@ button {
   border: none;
 }
 
-@media screen and (max-width: 600px) {
+/* Star Wars Scroll Text */
+#sw_scroller {
+  z-index: 0;
+  height: 90em;
+  width: 20em;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) perspective(320px) rotateX(24deg);
+  transform-origin: 50% 100%;
+  font-family: 'starHollow';
+  font-weight: bold;
+  color: var(--yellow);
+  font-size: 350%;
+  text-align: justify;
+  overflow: hidden;
+}
+#sw_scroller::after {
+  position: absolute;
+  content: '';
+  bottom: 60%;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#sw_scroller .content {
+  position: absolute;
+  top: 100%;
+  animation: sw_scroll 169s linear 2s;
+}
+@keyframes sw_scroll {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -200%;
+  }
+}
+
+#sw_scroller .content .title, #sw_scroller .content .subtitle {
+  line-height: 1.5rem;
+} 
+#sw_scroller .content .subtitle {
+  text-transform: capitalize;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 1000px) {
+  #mainPage .socials {
+    width: calc(100% - 32px);
+    margin-top: 90px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
   #mainPage .footer {
+    width: calc(100% - 48px);
+    margin-top: 32px;
+    margin-left: 24px;
+    margin-right: 24px;
     gap: 16px;
   }
   #mainPage .footer span {
     font-size: 0.8rem;
     letter-spacing: 1px;
+  }
+  #sw_scroller {
+    height: 88em;
+    width: 16em;
+    font-size: 1.4rem;
+  }
+  #sw_scroller::after {
+    position: absolute;
+    content: '';
+    bottom: 60%;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  #sw_scroller .content {
+    animation: sw_scroll 148s linear 2s;
+  }
+
+  #sw_scroller .content .title, #sw_scroller .content .subtitle {
+    line-height: 1.4rem;
+  } 
+  #sw_scroller .content .subtitle {
+    text-transform: capitalize;
+    font-size: 1.4rem;
   }
 }
